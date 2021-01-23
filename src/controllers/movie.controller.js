@@ -10,10 +10,11 @@ class MovieController {
 	 * @param deleteMovie
 	 * @param getMovie
 	 */
-	constructor({addMovie, deleteMovie, getMovie}) {
+	constructor(addMovie) {
 		this.addMovieUC = addMovie;
-		this.deleteMovieUC = deleteMovie;
-		this.getMovieUC = getMovie;
+		//this.test = "This is a test";
+		/*this.deleteMovieUC = deleteMovie;
+		this.getMovieUC = getMovie;*/
 	}
 
 	/**
@@ -22,18 +23,22 @@ class MovieController {
 	 * @returns {Promise<{data: {movie: *}, message: string, status: number}>}
 	 */
 	async addMovie(request) {
-		let body = request.params
-		let movie = this.addMovieUC.addMovie(body);
-		return {
-			status: 201,
-			message: "Movie created correctly",
-			data: {movie}
+		try {
+			let body = request.params
+			let movie = this.addMovieUC.addMovie(body);
+			return {
+				status: 201,
+				message: "Movie created correctly",
+				data: {movie}
+			}
+		} catch {
+			return {
+				status: 500,
+				message: "Something went wrong"
+			}
 		}
+
 	}
 }
 
-/**
- *
- * @type {MovieController}
- */
-module.exports = MovieController;
+export default MovieController;

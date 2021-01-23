@@ -8,6 +8,7 @@
     "dev": "nodemon --exec babel-node src/index.js",
     "doc": "jsdoc -c jsdoc.json"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlfonMnz/filmes.git"

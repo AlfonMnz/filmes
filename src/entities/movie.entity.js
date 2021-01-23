@@ -30,4 +30,4 @@ class MovieEntity {
 	}
 }
 
-module.exports = MovieEntity;
+export default MovieEntity;

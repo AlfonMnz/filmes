@@ -1,9 +1,5 @@
-/**
- * @namespace Entity
- */
-import MovieEntity from './movie.entity';
+
+import MovieEntity from './movie.entity.js';
 const movieEntity = new MovieEntity();
 
-module.exports = {
-	movieEntity
-}
+export default {movieEntity}

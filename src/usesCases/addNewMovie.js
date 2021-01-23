@@ -1,4 +1,4 @@
-import {movieEntity} from '../entities/index';
+import movieEntity from '../entities/index.js';
 
 /**
  * The Use Case of add new movie
@@ -14,10 +14,13 @@ class AddNewMovieUC {
 		this.movieEntity = movieEntity;
 	}
 
-
+	/**
+	 * create a new Movie in the database
+	 * @param {JSON} movieData the data of the movie
+	 */
 	addMovie(movieData) {
 		let movie = this.movieEntity.makeMovie(movieData);
 	}
 }
 
-module.exports = AddNewMovieUC;
+export default AddNewMovieUC;
