@@ -21,7 +21,7 @@ export default class AddNewMovieUC {
 	async addMovie(movieData) {
 		try {
 			let movie = this.movieEntity.makeMovie(movieData);
-			await movieDb.addMovie(movie);
+			return await movieDb.addMovie(movie);
 		} catch (e) {
 			throw e;
 		}

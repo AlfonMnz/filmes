@@ -6,7 +6,7 @@ export default class ExpressCallback {
 		}
 		try {
 			let result = await controllerObject[controllerFunction](http);
-			console.log(result)
+			return res.status(result.status).json(result.jsonResponse)
 		} catch (e) {
 			throw e;
 		}

@@ -28,14 +28,18 @@ export default class MovieController {
 			let movie = await this.addMovieUC.addMovie(body);
 			return {
 				status: 201,
-				message: "Movie created correctly",
-				data: {movie}
+				jsonResponse: {
+					message: "Movie created correctly",
+					data: {movie}
+				}
 			}
-		} catch(e) {
+		} catch (e) {
 			return {
 				status: 500,
-				message: "Something went wrong",
-				errorMessage: e.message
+				jsonResponse: {
+					message: "Something went wrong",
+					errorMessage: e.message
+				}
 			}
 		}
 
