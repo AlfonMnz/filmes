@@ -24,8 +24,7 @@ export default class MovieEntity {
 		if (!movieData.hasOwnProperty('overview')) throw new Error('Movie needs overview');
 		if (!movieData.hasOwnProperty('poster_path')) throw new Error('Movie needs poster_path');
 		if (!movieData.hasOwnProperty('title')) throw new Error('Movie needs title');
-		return {
-			movieData
-		}
+		return movieData
+
 	}
 }

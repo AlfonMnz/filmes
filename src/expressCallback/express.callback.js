@@ -1,4 +1,4 @@
-class ExpressCallback {
+export default class ExpressCallback {
 	static async makeCallback(req, res, controllerObject, controllerFunction) {
 		let http = {
 			body: req.body,
@@ -13,5 +13,3 @@ class ExpressCallback {
 
 	}
 }
-
-export default ExpressCallback;

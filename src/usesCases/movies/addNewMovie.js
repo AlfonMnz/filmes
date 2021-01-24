@@ -1,18 +1,17 @@
-import movieEntity from '../entities/index.js';
-import {movieDb} from '../db/index.js';
+import {movieEntity} from '../../entities/index.js';
+import {movieDb} from '../../db/index.js';
 /**
  * The Use Case of add new movie
  * @typedef AddNewMovieUC
  */
-console.log(movieEntity);
-class AddNewMovieUC {
+export default class AddNewMovieUC {
 	/**
 	 * Constructor of the class
 	 * @constructor
 	 * @property {MovieEntity} movieEntity The movie entity
 	 */
 	constructor() {
-		this.movieEntity = movieEntity.movieEntity;
+		this.movieEntity = movieEntity;
 	}
 
 	/**
@@ -22,13 +21,9 @@ class AddNewMovieUC {
 	async addMovie(movieData) {
 		try {
 			let movie = this.movieEntity.makeMovie(movieData);
-			await movieDb.movieDb.addMovie(movie);
+			await movieDb.addMovie(movie);
 		} catch (e) {
 			throw e;
 		}
-
-
 	}
 }
-
-export default AddNewMovieUC;

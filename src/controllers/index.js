@@ -1,6 +1,6 @@
-import MovieController from  './movie.controller.js';
-import addNewMovie from "../usesCases/addNewMovie.js";
+import MovieController from './movie.controller.js';
+import {addNewMovieUC} from "../usesCases/index.js";
 
-const movieController = new MovieController(new addNewMovie());
+const movieController = new MovieController(addNewMovieUC);
 
-export default {movieController}
+export {movieController}

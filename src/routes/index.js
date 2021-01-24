@@ -1,3 +1,3 @@
-import * as movieRoutes from './movie.routes.js';
+import movieRoutes from './movie.routes.js';
 
 export {movieRoutes}

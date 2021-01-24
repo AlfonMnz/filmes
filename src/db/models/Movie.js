@@ -1,9 +1,11 @@
-const mongoose = require("mongoose");
+//const mongoose = require("mongoose");
 
-const Schema = require("mongoose").Schema;
+//const Schema = require("mongoose").Schema;
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 /**
- * Movie
- * @typedef {Object} Movie
+ * MovieModel
+ * @typedef {Object} MovieModel
  * @property {Boolean} [adult] If the movie is to adult
  * @property {String} backdrop_path The pic URL
  * @property {String} [belongs_to_collection] @todo Buscar que es este parámetro

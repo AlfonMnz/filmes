@@ -2,7 +2,7 @@
  * The controller of the movie
  * @typedef MovieController
  */
-class MovieController {
+export default class MovieController {
 	/**
 	 *
 	 * @constructor
@@ -25,7 +25,7 @@ class MovieController {
 	async addMovie(request) {
 		try {
 			let body = request.body;
-			let movie = this.addMovieUC.addMovie(body);
+			let movie = await this.addMovieUC.addMovie(body);
 			return {
 				status: 201,
 				message: "Movie created correctly",
@@ -34,11 +34,10 @@ class MovieController {
 		} catch(e) {
 			return {
 				status: 500,
-				message: "Something went wrong"
+				message: "Something went wrong",
+				errorMessage: e.message
 			}
 		}
 
 	}
 }
-
-export default MovieController;
