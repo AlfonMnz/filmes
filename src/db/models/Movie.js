@@ -65,5 +65,5 @@ const movieSchema = new Schema({
 	vote_average: mongoose.Decimal128,
 	vote_count: {type: Number, default: 0},
 });
-
-module.exports = mongoose.model("movie", movieSchema);
+const MovieModel = mongoose.model("movie", movieSchema);
+export default MovieModel;

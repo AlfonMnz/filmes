@@ -2,14 +2,14 @@
  * Class of the Movie's handler with DB
  * @typedef MovieDb
  */
-class MovieDb {
+export default class MovieDb {
 	/**
 	 * Set the movieModel to property of the class
 	 * @constructor
 	 * @param {Movie} movieModel The movie Model of mongoose
 	 * @property {Movie} movieModel The movie Model of mongoose
 	 */
-	constructor({movieModel}) {
+	constructor(movieModel) {
 		this.movieModel = movieModel;
 	}
 
@@ -25,5 +25,3 @@ class MovieDb {
 	}
 
 }
-
-module.exports = MovieDb;

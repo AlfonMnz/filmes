@@ -1,3 +1,3 @@
-import {router as movieRoutes} from './movie.routes.js';
+import * as movieRoutes from './movie.routes.js';
 
-export default {movieRoutes}
+export {movieRoutes}

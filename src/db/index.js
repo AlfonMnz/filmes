@@ -1,6 +1,6 @@
-import MovieDb from 'movie.db';
+import MovieDb from './movie.db.js';
 import mongoose from 'mongoose';
-import Movie from './models/Movie';
+import Movie from './models/Movie.js';
 
 mongoose.connect('mongodb://localhost/filmes', {
 	useNewUrlParser: true,
@@ -10,7 +10,7 @@ mongoose.connect('mongodb://localhost/filmes', {
 	.catch((err) => console.log(err));
 
 
-const movieDb = new MovieDb({Movie})
-module.export = {
+const movieDb = new MovieDb(Movie)
+export default {
 	movieDb
 }

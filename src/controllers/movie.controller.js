@@ -24,14 +24,14 @@ class MovieController {
 	 */
 	async addMovie(request) {
 		try {
-			let body = request.params
+			let body = request.body;
 			let movie = this.addMovieUC.addMovie(body);
 			return {
 				status: 201,
 				message: "Movie created correctly",
 				data: {movie}
 			}
-		} catch {
+		} catch(e) {
 			return {
 				status: 500,
 				message: "Something went wrong"

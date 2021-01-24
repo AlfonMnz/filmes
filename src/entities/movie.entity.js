@@ -2,7 +2,7 @@
  * Entity of a movie
  * @typedef MovieEntity
  */
-class MovieEntity {
+export default class MovieEntity {
 	/**
 	 * The constructor of the class
 	 * @constructor
@@ -29,5 +29,3 @@ class MovieEntity {
 		}
 	}
 }
-
-export default MovieEntity;
