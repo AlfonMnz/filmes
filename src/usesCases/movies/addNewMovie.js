@@ -1,5 +1,3 @@
-import {movieEntity} from '../../entities/index.js';
-import {movieDb} from '../../db/index.js';
 /**
  * The Use Case of add new movie
  * @typedef AddNewMovieUC
@@ -10,8 +8,9 @@ export default class AddNewMovieUC {
 	 * @constructor
 	 * @property {MovieEntity} movieEntity The movie entity
 	 */
-	constructor() {
+	constructor(movieDb, movieEntity) {
 		this.movieEntity = movieEntity;
+		this.movieDb = movieDb;
 	}
 
 	/**
@@ -20,8 +19,10 @@ export default class AddNewMovieUC {
 	 */
 	async addMovie(movieData) {
 		try {
+			let existMovie = this.movieDb.getMovieById(movieData.id);
+			if (existMovie) throw new Error('Movie already exists');
 			let movie = this.movieEntity.makeMovie(movieData);
-			return await movieDb.addMovie(movie);
+			return await this.movieDb.addMovie(movie);
 		} catch (e) {
 			throw e;
 		}

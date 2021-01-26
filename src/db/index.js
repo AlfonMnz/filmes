@@ -1,4 +1,4 @@
-import MovieDb from "./movie.db.js";
+import MovieDb from "./handler/movie.db.js";
 //import {movieEntity} from '../entities/index.js';
 import MovieModel from './models/Movie.js';
 import mongoose from 'mongoose';

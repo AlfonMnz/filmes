@@ -6,8 +6,8 @@ export default class MovieDb {
 	/**
 	 * Set the movieModel to property of the class
 	 * @constructor
-	 * @param {Movie} movieModel The movie Model of mongoose
-	 * @property {Movie} movieModel The movie Model of mongoose
+	 * @param {MovieModel} movieModel The movie Model of mongoose
+	 * @property {MovieModel} movieModel The movie Model of mongoose
 	 */
 	constructor(movieModel) {
 		this.movieModel = movieModel;
@@ -18,10 +18,18 @@ export default class MovieDb {
 			let newMovieModel = new this.movieModel(movie);
 			return await newMovieModel.save();
 		} catch (e) {
-			console.log(e.message);
-			throw new Error("Can't create the movie");
+			throw e;
+			//throw new Error("Can't create the movie");
 		}
 
 	}
 
+	async getMovieById(movieId) {
+		try {
+			return this.movieModel.findOne({id: movieId});
+		} catch (e) {
+			throw e;
+			//throw new Error("Can't find the movie")
+		}
+	}
 }
