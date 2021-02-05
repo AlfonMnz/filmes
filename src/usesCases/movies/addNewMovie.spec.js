@@ -4,6 +4,7 @@ import chaiAsPromised from 'chai-as-promised';
 const expect = chai.expect;
 chai.use(chaiAsPromised);
 import {addNewMovieUC} from "../index.js";
+import {deleteMovieUC} from "../../usesCases/index.js";
 import utils from "../../utils/utils.js";
 
 let exampleData = {
@@ -97,6 +98,7 @@ describe('Check the Add New Movie UC', () => {
 		let data = exampleData;
 		let result = await addNewMovieUC.addMovie(data);
 		expect(result.__v).to.be.equal(0);
+		deleteMovieUC.deleteMovie(data.id);
 	});
 	it('Should return a fail from Entity', async () => {
 		let data = utils.cloneObject(exampleData);

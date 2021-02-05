@@ -15,7 +15,7 @@ export default class MovieDb {
 
 	async addMovie(movie) {
 		try {
-			let newMovieModel = new this.movieModel(movie);
+			let newMovieModel = await new this.movieModel(movie);
 			return await newMovieModel.save();
 		} catch (e) {
 			throw e;

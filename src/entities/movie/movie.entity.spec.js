@@ -1,7 +1,7 @@
 import chai from 'chai';
 
 const expect = chai.expect;
-import MovieEntity from "./movie.entity.js";
+import {movieEntity} from "../index.js";
 import utils from "../../utils/utils.js";
 
 let exampleData = {
@@ -89,12 +89,11 @@ let exampleData = {
 	"vote_average": 7.8,
 	"vote_count": 3439
 }
-let movieEntity = new MovieEntity();
 describe('Check Movie Entity', () => {
 	it('Should return the movie', () => {
 		let data = exampleData;
 		let result = movieEntity.makeMovie(data);
-		expect(result).to.equal(data)
+		expect(result).to.equal(data);
 	});
 	it('Should throw an error without backdrop_path', () => {
 		let data = utils.cloneObject(exampleData);
