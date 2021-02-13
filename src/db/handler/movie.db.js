@@ -11,7 +11,6 @@ export default class MovieDb {
 			return await newMovieModel.save();
 		} catch (e) {
 			throw e;
-			//throw new Error("Can't create the movie");
 		}
 
 	}
