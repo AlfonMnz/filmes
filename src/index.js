@@ -1,17 +1,18 @@
-
 import express from 'express';
-import {movieRoutes} from './routes/index.js';
+import {movieRoutes, serieRoutes, seasonRoutes} from './routes/index.js';
 import bodyParser from 'body-parser';
+
 const app = express();
 
 
 //Middleware
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true, limit: "10mb"}))
+app.use(bodyParser.json({limit: "10mb"}));
 
 //Routes
 app.use('/api/movie', movieRoutes);
-
+app.use('/api/serie', serieRoutes);
+app.use('/api/season', seasonRoutes);
 
 app.listen(process.env.PORT || 3000, () => {
 	console.log('SERVER STATUS [OK]');

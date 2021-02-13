@@ -2,6 +2,8 @@
  * The controller of the movie
  * @typedef MovieController
  */
+import utils from "../utils/utils";
+
 export default class MovieController {
 	/**
 	 *
@@ -10,8 +12,8 @@ export default class MovieController {
 	 * @param deleteMovie
 	 * @param getMovie
 	 */
-	constructor(addMovie) {
-		this.addMovieUC = addMovie;
+	constructor(addMovieUC) {
+		this.addMovieUC = addMovieUC;
 		//this.test = "This is a test";
 		/*this.deleteMovieUC = deleteMovie;
 		this.getMovieUC = getMovie;*/
@@ -34,13 +36,7 @@ export default class MovieController {
 				}
 			}
 		} catch (e) {
-			return {
-				status: 500,
-				jsonResponse: {
-					message: "Something went wrong",
-					errorMessage: e.message
-				}
-			}
+			return utils.serverErrorResponse(e);
 		}
 
 	}
