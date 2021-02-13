@@ -1,8 +1,9 @@
 import utils from "../utils/utils";
 
 export default class UserController {
-	constructor(addNewUserUC) {
+	constructor(addNewUserUC, loginUserUC) {
 		this.addNewUserUC = addNewUserUC;
+		this.loginUserUC = loginUserUC;
 	}
 
 	async addUser(request) {
@@ -14,6 +15,25 @@ export default class UserController {
 				jsonResponse: {
 					message: "User created correctly",
 					data: {user}
+				}
+			}
+		} catch (e) {
+			return utils.serverErrorResponse(e)
+		}
+	}
+
+	async loginUser(request) {
+		try {
+			let body = request.body;
+			let data = await this.loginUserUC.loginUser(body);
+			request.res.cookie('userData', data.userData);
+			request.req.session.token = data.token;
+			request.req.session.userData = data.token;
+			return {
+				status: 200,
+				jsonResponse: {
+					message: "Login correctly",
+					data: data.token
 				}
 			}
 		} catch (e) {

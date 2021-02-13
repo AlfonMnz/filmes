@@ -5,9 +5,17 @@ import AddNewSerieUC from "./series/addNewSerieUC";
 import AddNewSeasonUC from "./seasons/addNewSeasonUC";
 import AddNewEpisodeUC from "./episodes/addNewEpisodeUC";
 import AddNewUserUC from "./users/addNewUserUC";
+import LoginUserUC from './users/loginUserUC';
 
+//Importing Entities
 import {movieEntity, episodeEntity, seasonEntity, serieEntity, userEntity} from "../entities/index.js";
+
+//Importing Db Handlers
 import {movieDb, episodeDb, seasonDb, serieDb, userDb} from "../db/index.js";
+
+//Importing Middlewares
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 //Movie UC
 const addNewMovieUC = new AddNewMovieUC(movieDb, movieEntity);
@@ -25,6 +33,7 @@ const addNewSeasonUC = new AddNewSeasonUC(seasonDb, seasonEntity, addNewEpisodeU
 
 //User UC
 const addNewUserUC = new AddNewUserUC(userDb, userEntity);
+const loginUserUC = new LoginUserUC(userDb, bcrypt, jwt)
 
 export {
 	addNewMovieUC,
@@ -33,4 +42,5 @@ export {
 	addNewSeasonUC,
 	addNewSerieUC,
 	addNewUserUC,
+	loginUserUC
 }
