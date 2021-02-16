@@ -19,7 +19,7 @@ export default class AddNewMovieUC {
 	 */
 	async addMovie(movieData) {
 		try {
-			let existMovie = this.movieDb.getMovieById(movieData.id);
+			let existMovie = await this.movieDb.getMovieById(movieData.id);
 			if (existMovie) throw new Error('Movie already exists');
 			let movie = this.movieEntity.makeMovie(movieData);
 			return await this.movieDb.addMovie(movie);

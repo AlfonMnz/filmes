@@ -10,8 +10,7 @@ export default class LoginUserUC {
 		try {
 			let userDb = await this.userDb.getUserByEmail(userData.email);
 			if (!userDb) throw new Error("Invalid password or email");
-
-			if (!this.bcrypt.compare(userData.password, userDb.password)) throw new Error("Invalid password or email");
+			if (!await this.bcrypt.compare(`${userData.password}`, `${userDb.password}`)) throw new Error("Invalid password or email");
 
 			delete userDb.password;
 

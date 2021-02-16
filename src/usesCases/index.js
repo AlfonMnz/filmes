@@ -8,32 +8,47 @@ import AddNewUserUC from "./users/addNewUserUC";
 import LoginUserUC from './users/loginUserUC';
 
 //Importing Entities
-import {movieEntity, episodeEntity, seasonEntity, serieEntity, userEntity} from "../entities/index.js";
+import {
+	movieEntity,
+	episodeEntity,
+	seasonEntity,
+	serieEntity,
+	userEntity,
+	viewSerieEntity,
+	viewMovieEntity
+} from "../entities/index.js";
 
 //Importing Db Handlers
-import {movieDb, episodeDb, seasonDb, serieDb, userDb} from "../db/index.js";
+import {movieDb, episodeDb, seasonDb, serieDb, userDb, viewSerieDb, viewMovieDb} from "../db/index.js";
 
 //Importing Middlewares
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import AddNewViewMovieUC from "./views/viewMovie/addNewViewMovieUC";
+import AddNewViewSerieUC from "./views/viewSerie/addNewViewSerieUC";
 
-//Movie UC
+//Movie UCs
 const addNewMovieUC = new AddNewMovieUC(movieDb, movieEntity);
 const deleteMovieUC = new DeleteMovieUC(movieDb);
 
-//Serie UC
+//Serie UCs
 const addNewSerieUC = new AddNewSerieUC(serieDb, serieEntity, seasonDb);
 
-
-//Episode UC
+//Episode UCs
 const addNewEpisodeUC = new AddNewEpisodeUC(episodeDb, episodeEntity);
 
-//Season UC
+//Season UCs
 const addNewSeasonUC = new AddNewSeasonUC(seasonDb, seasonEntity, addNewEpisodeUC);
 
-//User UC
+//User UCs
 const addNewUserUC = new AddNewUserUC(userDb, userEntity);
 const loginUserUC = new LoginUserUC(userDb, bcrypt, jwt)
+
+//View Movie UCs
+const addNewViewMovieUC = new AddNewViewMovieUC(viewMovieDb, viewMovieEntity, jwt);
+
+//View Serie UCs
+const addNewViewSerieUC = new AddNewViewSerieUC(viewSerieDb, viewSerieEntity, jwt);
 
 export {
 	addNewMovieUC,
@@ -42,5 +57,7 @@ export {
 	addNewSeasonUC,
 	addNewSerieUC,
 	addNewUserUC,
-	loginUserUC
+	loginUserUC,
+	addNewViewMovieUC,
+	addNewViewSerieUC
 }

@@ -1,5 +1,5 @@
 import express from 'express';
-import {movieRoutes, serieRoutes, seasonRoutes, userRoutes} from './routes/index.js';
+import {movieRoutes, serieRoutes, seasonRoutes, userRoutes, viewSerieRoutes, viewMovieRoutes} from './routes/index.js';
 import bodyParser from 'body-parser';
 import expressSession from 'express-session';
 
@@ -24,6 +24,9 @@ app.use('/api/movie', movieRoutes);
 app.use('/api/serie', serieRoutes);
 app.use('/api/season', seasonRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/viewMovie', viewMovieRoutes);
+app.use('/api/viewSerie', viewSerieRoutes);
+
 
 app.listen(process.env.PORT || 3000, () => {
 	console.log('SERVER STATUS [OK]');

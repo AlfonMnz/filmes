@@ -26,9 +26,7 @@ export default class UserController {
 		try {
 			let body = request.body;
 			let data = await this.loginUserUC.loginUser(body);
-			request.res.cookie('userData', data.userData);
 			request.req.session.token = data.token;
-			request.req.session.userData = data.token;
 			return {
 				status: 200,
 				jsonResponse: {
