@@ -10,5 +10,6 @@ const seasonSchema = new schema({
 	poster_path: String,
 	season_number: Number,
 });
+//TODO remove s final
 const SeasonModel = mongoose.model('seasons', seasonSchema);
 export default SeasonModel;

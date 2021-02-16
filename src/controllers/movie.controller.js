@@ -2,8 +2,9 @@ import utils from "../utils/utils";
 
 export default class MovieController {
 
-	constructor(addMovieUC) {
+	constructor(addMovieUC, getMovieByIdUC) {
 		this.addMovieUC = addMovieUC;
+		this.getMovieByIdUC = getMovieByIdUC;
 	}
 
 	async addMovie(request) {
@@ -20,6 +21,22 @@ export default class MovieController {
 		} catch (e) {
 			return utils.serverErrorResponse(e);
 		}
+	}
 
+	async getMovieById(request) {
+		try {
+			let urlParams = request.params;
+
+			let movie = await this.getMovieByIdUC.getMovieById(urlParams.id);
+			return {
+				status: 200,
+				jsonResponse: {
+					message: "Movie found",
+					data: {movie}
+				}
+			}
+		} catch (e) {
+			return utils.serverErrorResponse(e)
+		}
 	}
 }

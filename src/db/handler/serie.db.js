@@ -14,9 +14,20 @@ export default class SerieDb {
 		}
 	}
 
-	async getSerieById(serieId) {
+	async getSerieById(serieId, populate = 0) {
 		try {
-			return this.serieModel.findOne({id: serieId});
+			let query = this.serieModel.findOne({id: serieId});
+
+			populate ? query.populate({
+				path: "seasons",
+				model: "seasons",
+				populate: {
+					path: "episodes",
+					model: "episode"
+				}
+			}) : null;
+
+			return await query.exec();
 		} catch (e) {
 			throw e;
 		}

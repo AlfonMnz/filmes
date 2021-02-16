@@ -3,6 +3,7 @@ export default class ExpressCallback {
 		let http = {
 			body: req.body,
 			header: req.header,
+			params: req.params,
 			res: res,
 			req: req,
 		}
