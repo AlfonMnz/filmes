@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from "@/views/user/Login";
 import Register from "@/views/user/Register";
+import Search from "@/views/Search";
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search
   }
 
 ]

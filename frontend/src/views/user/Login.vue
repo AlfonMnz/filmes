@@ -36,18 +36,28 @@ export default {
 		}
 	},
 	methods: {
-		login: function () {
-			axios.post('http://localhost:3000/api/user/login', {
-				email: this.email,
-				password: this.password
-			}).then((response) => {
+		login: async function () {
+			try {
+				let response = await axios.post(process.env.VUE_APP_URL_API + '/api/user/login', {
+					email: this.email,
+					password: this.password
+				});
+				
+				//Setting the UserData in the storage
 				this.$store.commit('setUserData', response.data.data);
-				this.$router.push('/');
-			})
+				
+				//Redirecting to Home
+				this.$router.push('home');
+			} catch (e) {
+			
+			}
+			
 		}
 	},
 	mounted() {
-		if (this.$store.userData){
+		
+		//If user is logged redirect to HomePage
+		if (Object.keys(this.$store.state.userData).length !== 0) {
 			this.$router.push('/');
 		}
 	},
