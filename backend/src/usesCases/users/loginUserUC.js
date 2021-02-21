@@ -18,7 +18,7 @@ export default class LoginUserUC {
 
 			return {
 				token: token,
-				userData: userDb,
+				userData: {email: userDb.email, username: userDb.username},
 			}
 
 		} catch (e) {

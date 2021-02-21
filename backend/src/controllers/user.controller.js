@@ -14,7 +14,10 @@ export default class UserController {
 				status: 201,
 				jsonResponse: {
 					message: "User created correctly",
-					data: {user}
+					data: {
+						email: user.email,
+						username: user.username
+					}
 				}
 			}
 		} catch (e) {
@@ -31,7 +34,7 @@ export default class UserController {
 				status: 200,
 				jsonResponse: {
 					message: "Login correctly",
-					data: data.token
+					data: data.userData
 				}
 			}
 		} catch (e) {
