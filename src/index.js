@@ -5,6 +5,8 @@ import expressSession from 'express-session';
 
 import cookieParser from 'cookie-parser';
 
+const cors = require('cors');
+
 const app = express();
 
 
@@ -18,6 +20,7 @@ app.use(expressSession({
 	saveUninitialized: true,
 	cookie: {secure: false, maxAge: process.env.COOKIE_MAX_AGE || 3600 * 5}
 }));
+app.use(cors());
 
 //Routes
 app.use('/api/movie', movieRoutes);
