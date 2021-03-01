@@ -1,58 +1,38 @@
 <template>
-	<nav class="mb-1 navbar navbar-expand-lg navbar-dark elegant-color lighten-1">
-		<a class="navbar-brand" href="#">Navbar</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Features</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Pricing</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
-					</a>
-					<div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</li>
-			</ul>
-			<ul class="navbar-nav ml-auto nav-flex-icons" v-if="Object.keys(userData).length !== 0">
-				<!-- <li class="nav-item">
-					<a class="nav-link waves-effect waves-light">1
-						<i class="fas fa-envelope"></i>
-					</a>
-				</li> -->
-				<li class="nav-item avatar dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image">
-					</a>
-					<div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
-				</li>
-			</ul>
-			<ul class="navbar-nav ml-auto" v-else>
-				<li class="nav-item">
-					<!-- <a class="nav-link" href="#">Log In</a> -->
-					<router-link to="/login">
-						<a href="" class="nav-link">Log In</a>
-					</router-link>
-				</li>
-			</ul>
-		</div>
+	<nav class="nav">
+		
+		<ul class="nav_list">
+			<div class="nav_list_element_brand">
+				<a href="javascript:void(0)">
+					Movie rewind
+				</a>
+			</div>
+			<!--			<li class="nav_list_element_brand nav_list_element">-->
+			<!--				<a href="javascript:void(0)">-->
+			<!--					Movie rewind-->
+			<!--				</a>-->
+			<!--			</li>-->
+			<li class="nav_list_element">
+				<a href="">
+					Home
+				</a>
+			</li>
+			<li class="nav_list_element">
+				<a href="">
+					Movie
+				</a>
+			</li>
+			<li class="nav_list_element">
+				<a href="">
+					Serie
+				</a>
+			</li>
+			<li class="nav_list_element nav_list_element_login">
+				<a href="">
+					Log in
+				</a>
+			</li>
+		</ul>
 	</nav>
 </template>
 <script>
@@ -72,7 +52,44 @@ export default {
 };
 </script>
 <style scoped>
-img {
-	height: 35px;
+.nav {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 5rem;
+	background-color: #424242;
+}
+
+.nav_list_element_brand > a {
+	color: white;
+	font-size: 25px;
+}
+
+.nav_list_element_brand {
+	padding-left: 1%;
+}
+
+.nav_list {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	justify-content: flex-start;
+}
+
+.nav_list_element > a {
+	color: white;
+	padding: 20px;
+	
+}
+.nav_list_element.nav_list_element_login {
+	margin-left: auto;
+	padding-left: 0%;
+	margin-right: 3%;
+}
+
+.nav_list_element {
+	height: 100%;
+	padding-left: 15%;
 }
 </style>

@@ -1,0 +1,15 @@
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	background-color: #121212
+}
+.main {
+	font-family: "Roboto", sans-serif;
+	line-height: 1.5;
+}

@@ -1,7 +1,35 @@
 <template>
-	<div>
-		<MovieCard :movie="movie"></MovieCard>
-	</div>
+	<v-container>
+		<v-row>
+			<v-col md="3">
+				<MovieCard :movie="movie"></MovieCard>
+			</v-col>
+			<v-col md="3">
+				<MovieCard :movie="movie"></MovieCard>
+			</v-col>
+			<v-col md="3">
+				<MovieCard :movie="movie"></MovieCard>
+			</v-col>
+			<v-col md="3">
+				<MovieCard :movie="movie"></MovieCard>
+			</v-col>
+			<v-col md="3">
+				<MovieCard :movie="movie"></MovieCard>
+			</v-col>
+			<v-col md="3">
+				<MovieCard :movie="movie"></MovieCard>
+			</v-col>
+			<v-col md="3">
+				<MovieCard :movie="movie"></MovieCard>
+			</v-col>
+			<v-col md="3">
+				<MovieCard :movie="movie"></MovieCard>
+			</v-col>
+			<v-col md="3">
+				<MovieCard :movie="movie"></MovieCard>
+			</v-col>
+		</v-row>
+	</v-container>
 </template>
 
 <script>

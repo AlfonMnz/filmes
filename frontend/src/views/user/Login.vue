@@ -1,33 +1,24 @@
 <template>
-	<v-container>
-		<v-row class="text-center" justify="center">
-			<v-col md="4">
-				<v-card elevation="24">
-					<v-card-title class="justify-center">
-						<h1 class="text-center">Login view</h1>
-					</v-card-title>
-					<v-card-text>
-						<v-form ref="form">
-							<v-text-field v-model="email" label="Correo electrónico"></v-text-field>
-							<v-text-field v-model="password" label="Contraseña" type="password"></v-text-field>
-						</v-form>
-						<!-- <v-text-field color="success" loading="loading" disabled></v-text-field>-->
-					</v-card-text>
-					<v-card-actions class="justify-center">
-						<v-btn color="info" @click="login">Login</v-btn>
-					</v-card-actions>
-				</v-card>
-			</v-col>
-		</v-row>
-	</v-container>
+	<div>
+		<Card title="Login">
+			<form class="form_main">
+				<label class="form_label" for="email">Email</label>
+				<input class="form_input" type="text" id="email" name="email">
+				<label class="form_label" for="password">Contraseña</label>
+				<input class="form_input" type="text" id="password" name="password">
+			</form>
+		</Card>
+	</div>
 </template>
 
 <script>
 import axios from "axios";
 import router from "@/router";
+import Card from "@/components/Card";
 
 export default {
 	name: "Login",
+	components: {Card},
 	data: function () {
 		return {
 			email: '',
@@ -66,5 +57,22 @@ export default {
 </script>
 
 <style scoped>
+.form_main {
+	display: flex;
+	flex-direction: column;
+	align-content: space-around;
+	height: inherit;
+}
+
+.form_label {
+	color: black;
+	font-size: 15px;
+	text-align: center;
+}
+
+.form_input {
+	border: 1px solid #424242;
+	border-radius: .25rem;
+}
 
 </style>
