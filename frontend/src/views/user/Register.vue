@@ -1,32 +1,19 @@
 <template>
-	<v-container>
-		<v-row>
-			<v-col>
-				<v-card elevation="24">
-					<v-card-title class="justify-center">
-						<h1>Register form</h1>
-					</v-card-title>
-					<v-card-text>
-						<v-form ref="form">
-							<v-text-field v-model="email" label="Correo electrónico" type="email"></v-text-field>
-							<v-text-field v-model="username" label="Nombre de usuario"></v-text-field>
-							<v-text-field v-model="password" label="Contraseña" type="password"></v-text-field>
-						</v-form>
-					</v-card-text>
-					<v-card-actions class="justify-center">
-						<v-btn color="info" @click="register">Register</v-btn>
-					</v-card-actions>
-				</v-card>
-			</v-col>
-		</v-row>
-	</v-container>
+	<div>
+		<Card title="Register">
+			<RegisterForm></RegisterForm>
+		</Card>
+	</div>
 </template>
 
 <script>
 import axios from 'axios';
+import RegisterForm from "@/components/Forms/RegisterForm";
+import Card from "@/components/Card";
 
 export default {
 	name: "Register",
+	components: {RegisterForm, Card},
 	data: function () {
 		return {
 			email: '',

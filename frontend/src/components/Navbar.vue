@@ -90,6 +90,6 @@ export default {
 
 .nav_list_element {
 	height: 100%;
-	padding-left: 15%;
+	padding-left: 10%;
 }
 </style>

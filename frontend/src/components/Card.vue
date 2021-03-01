@@ -25,7 +25,7 @@ export default {
 <style scoped>
 .card_main {
 	border: 2px solid transparent;
-	background-color: whitesmoke;
+	background-color: #363B3D;
 	width: 30%;/* TODO: Remove this style*/
 	border-radius: .25rem;
 	height: 300px;/* TODO: Remove this style*/
@@ -33,6 +33,7 @@ export default {
 }
 .card_title {
 	text-align: center;
+	color: rgb(209, 205, 199);
 }
 .card_body {
 	height: 100%;
